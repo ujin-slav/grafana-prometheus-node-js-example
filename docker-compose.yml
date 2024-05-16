@@ -1,4 +1,5 @@
 # docker-compose.yml
+# логин — admin, пароль — illchangeitanyway
 version: '2'
 services:
   prometheus:
