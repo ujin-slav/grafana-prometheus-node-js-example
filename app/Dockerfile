@@ -1,17 +1,18 @@
-FROM ubuntu:18.04
+# устанавливаем официальный образ Node.js
+FROM node:19-alpine
 
+# указываем рабочую (корневую) директорию
 WORKDIR /app
 
-RUN \
-    set -eux; \
-    apt-get update && \
-    apt-get install -y curl build-essential python git && \
-    curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
-    apt-get install -y nodejs
+# копируем основные файлы приложения в рабочую директорию
+COPY package.json package-lock.json ./
 
-COPY . .
+# устанавливаем указанные зависимости NPM на этапе установки образа
+RUN npm install
 
-RUN npm install --unsafe-perm
+# после установки копируем все файлы проекта в корневую директорию
+COPY . ./
 
-ENTRYPOINT ["node"]
+# запускаем основной скрипт в момент запуска контейнера
+CMD npm start
 
