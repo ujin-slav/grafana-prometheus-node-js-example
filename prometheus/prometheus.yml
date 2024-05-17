@@ -1,6 +1,12 @@
-global:
-  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.  
 scrape_configs:
-  - job_name: 'express' 
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+
     static_configs:
-    - targets: ['http://185.195.27.169:9200'] #Our express app container
+      - targets: [
+        'app:9200',
+      ]
+        labels:
+          service: 'app-exporter'
+          group: 'testing'
+          name: 'app-exporter'
