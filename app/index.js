@@ -4,4 +4,4 @@ const metricsMiddleware = promBundle({includeMethod: true});
 
 app.use(metricsMiddleware);
 app.use(/* your middleware */);
-app.listen(3000);
+app.listen(9200);
