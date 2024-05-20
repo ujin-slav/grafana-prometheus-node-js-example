@@ -22,4 +22,7 @@ app.use(metricsMiddleware);
 app.get('/data', (req, res) => {
   res.json({data: 'Some data...'});
 }); 
+app.get('/data1', (req, res) => {
+  res.json({data: 'Some data1...'});
+}); 
 app.listen(9200);
