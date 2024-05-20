@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
-    "express-prom-bundle": "^7.0.0"
+    "express-prom-bundle": "^7.0.0",
+    "express-prometheus-middleware": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0"
